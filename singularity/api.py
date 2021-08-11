@@ -320,13 +320,13 @@ class SingularityAPI(object):
 
         return gathered
 
-    def find_region_by_lat_long(self, lat, long):
+    def find_regions_by_lat_long(self, lat, long):
         """Get the BA region from latitutde and longitude
 
         :param lat: the latitude of the location you want the region for.
         :parma long: the longitude of the location you want the region for.
         """
-        url = self.BASE_URL + '/v1/regions/from-lat-long/{},{}'.format(lat, long)
+        url = self.BASE_URL + '/v1/regions/from-lat-lng/{},{}'.format(lat, long)
         res = req.get(url, headers=self._get_headers())
         if res.status_code == 200:
             return res.json()['regions']
